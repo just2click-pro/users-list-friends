@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import UserDetails from "./UserDetails";
 import UserPosts from "./UserPosts"
+import UserAdd from "./UserAdd";
 import {getUser} from "../../../actions/creators"
 
 import "./user-page.scss";
@@ -28,6 +29,7 @@ class UserPage extends React.Component {
             return <main className="user-page">Loading...</main>;
 
         return (<main className="user-page">
+                    <UserAdd user={ this.props.user } />
                     <UserDetails user={ this.props.user }/>
                     <UserPosts posts={ this.props.posts }/>
                 </main>)

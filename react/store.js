@@ -13,8 +13,8 @@ const state = {
         isLoading: false,
         usersList: [],
         selectedUser: {
-            details: null,
-            posts: null
+            details: {},
+            posts: []
         }
     },
     friends: {

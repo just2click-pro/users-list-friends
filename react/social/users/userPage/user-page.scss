@@ -2,10 +2,20 @@
 
 .user-page {
     background: $mainBackground;
+    color: #ffffff;
     padding: 20px;
     margin: 20px;
     margin-left: 250px;
 
+    .add-button {
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+            color: #f0f0f0;
+            text-decoration: none;
+        }
+    }
 
     dt {
         font-weight: 500;

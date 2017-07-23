@@ -4,7 +4,7 @@ import loggedInUserReducer from "./loggedInUserReducer";
 import usersReducer from "./usersReducer";
 
 export default combineReducers({
+	loggedInUser: loggedInUserReducer,
     users: usersReducer,
-    loggedInUser: loggedInUserReducer,
     friends: friendsReducer
 });

@@ -5,6 +5,7 @@ import {Redirect} from "react-router";
 import LoginService from "../services/LoginService";
 
 import "./login.scss";
+import "../main.scss";
 
 class Login extends React.Component {
 
@@ -19,8 +20,8 @@ class Login extends React.Component {
             return (
                 <form className="login-window" onSubmit={ ()=> this.logIn() }>
                     <input type="text" ref={ e => this.input = e }/>
-                    <br/>
-                    <input type="submit" value="Login"/>
+                    <br/><br/>
+                    <input className="btn-log" type="submit" value="Login"/>
                 </form>
             );
         else

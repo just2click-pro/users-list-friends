@@ -2,21 +2,42 @@
 
 .friends-list {
     background: $navBackground;
-    color: $fontColor;
     box-shadow: 4px 4px 0 2px rgba(0,0,0,.4);
+    color: $fontColor;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
     padding: 20px;
-    margin: 20px;
-    width: 150px;
-    position: absolute;
-    top: 82px;
-    left: 0;
+    width: 90%;
 
-    a {
-        color: $fontColor;
-        text-decoration: none;
+    .friend-box {
+        background: #d75813;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 2px 1px rgba(171,0,0, 0.8);
 
-        &.active {
-            text-decoration: underline;
+        .x-button {
+            display: flex;
+            justify-content: flex-end;
+
+            a:hover {
+                text-decoration: none;
+            }
+        }        
+
+        h3 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        a {
+            color: $linkFontColor;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;                
+            }
         }
     }
 }

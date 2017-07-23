@@ -1,8 +1,8 @@
 import React from "react";
-import {connect} from "react-redux";
-import {NavLink} from "react-router-dom";
-import {withRouter} from "react-router";
-import {getUsersList} from "../../../actions/creators";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
+import { getUsersList } from "../../../actions/creators";
 
 import "./users-list.scss";
 
@@ -20,7 +20,7 @@ class UsersList extends React.Component {
                 </li>
     }
 
-    render(){
+    render() {
         if(this.props.isLoading)
             return <nav className="users-list">Loading...</nav>;
 

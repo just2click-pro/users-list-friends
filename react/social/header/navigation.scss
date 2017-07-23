@@ -3,9 +3,15 @@
 .navigation {
     background: $navBackground;
     color: $fontColor;
-    box-shadow: 4px 4px 0 2px rgba(0,0,0,.4);
-    padding: 20px;
-    margin: 20px;
+    box-shadow: 1px 1px 3px 1px rgba(171, 0, 0, 0.5);
+
+    .mdl-navigation__link:hover {
+        cursor: pointer;
+    }
+
+    .mdl-layout-title {
+        padding-right: 15px;
+    }
 
     a {
         color: $fontColor;
@@ -15,7 +21,9 @@
         padding: 10px;
 
         &.active {
-            border: 1px solid $fontColor;
+            color: $navActiveLink;
+            font-weight: 600; 
+            text-decoration: underline;
         }
     }
 }

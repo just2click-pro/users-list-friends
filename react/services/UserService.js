@@ -4,6 +4,7 @@ class UserService{
 
     constructor() {
         this.url = "https://jsonplaceholder.typicode.com/users/";
+        this.avatarUrl = "https://api.adorable.io/avatars/100/%%@adorable.png"
     }
 
     getAllUsers(){
@@ -12,6 +13,14 @@ class UserService{
 
     getUser(id){
         return $.get(this.url+id);
+    }
+
+    getUserAvatar (name) {
+    	if (name) {
+    		let firstName = name.split(' ')[0];
+    		return this.avatarUrl.replace('%%', firstName);
+    	}
+    	return null;
     }
 
 }

@@ -45,8 +45,8 @@ export function addFriend (user) {
     return { type: ACTIONS.ADD_FRIEND, user }
 }
 
-export function removeFriend (user) {
-    return { type: ACTIONS.REMOVE_FRIEND, user }
+export function removeFriend (userId) {
+    return { type: ACTIONS.REMOVE_FRIEND, userId }
 }
 
 export function getFriendsList () {

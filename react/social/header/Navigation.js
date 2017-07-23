@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {logOut} from "../../actions/creators";
 import LoginService from "../../services/LoginService";
 
+import "../../material-design-lite.scss";
 import "./navigation.scss";
 
 class Navigation extends React.Component {
@@ -15,13 +16,20 @@ class Navigation extends React.Component {
     }
 
     render(){
-        return (<header className="navigation">
+        return (
+            <header className="navigation mdl-layout__header">
+                <div className="mdl-layout__header-row">
+                    <span className="mdl-layout-title">Title  </span>
                     <span>Hello, {this.props.user.name}</span>
-                    <NavLink exact to="/" activeClassName="active">About</NavLink>
-                    <NavLink to="/users" activeClassName="active">Users</NavLink>
-                    <NavLink to="/friends" activeClassName="active">Friends</NavLink>
-                    <button onClick={ ()=> this.logout() }>Log out</button>
-                </header>);
+                    <div className="mdl-layout-spacer"></div>
+                    <nav className="mdl-navigation">
+                        <NavLink exact to="/" activeClassName="active" className="mdl-navigation__link">About</NavLink>
+                        <NavLink to="/users" activeClassName="active" className="mdl-navigation__link">Users</NavLink>
+                        <NavLink to="/friends" activeClassName="active" className="mdl-navigation__link">Friends</NavLink>
+                    </nav>
+                    <button className="btn-log" onClick={ ()=> this.logout() }>Log out</button>
+                </div>
+            </header>);
     }
 }
 

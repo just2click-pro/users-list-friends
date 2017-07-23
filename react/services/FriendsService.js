@@ -1,28 +1,73 @@
-let UserService = require('./UserService');
+import UserService from './UserService';
 
 class FriendsService {
-	setFriends (friends) {
-		localStrorage.setItem('user_friends', JSON.stringify(friends));
+	constructor () {
+		this.users = [];
+		this.getUsers();
 	}
 
-	getFriends () {
-		let friends = localStrorage.getItem('user_friends');
+	getUsers () {
+		UserService.getAllUsers()
+			.then( (users) => {
+				this.users = users;
+				return users;
+			});
+	}
+
+	loadFriends () {
+		let friends = localStorage.getItem('user_friends');
 
 		if (friends) {
 			return JSON.parse(friends);
 		} else {
-			friends = [];
-		}
+			return null;
+		}		
+	}
 
-		UsersService.getAllUsers()
+	addFriend (id) {
+		let friends = this.loadFriends();
+		if (friends == null) { friends = []; }
+		if (!friends.includes(id)) {
+			friends.push(id);
+		}
+		this.saveFriends(friends);
+	}
+
+	removeFriend (id) {
+		let friends = this.loadFriends();
+		this.saveFriends(friends.filter((friend) => {
+			return (friend !== id);
+		}));
+	}
+
+	saveFriends (friends) {
+		localStorage.setItem('user_friends', JSON.stringify(friends));
+	}
+
+	getFriends () {
+		let friends = this.loadFriends();
+		if (friends == null) { friends = []; }
+
+		return UserService.getAllUsers()
 			.then( (users) => {
+				this.users = users;
+				return users;
+			})
+			.then ( (users) => {
 				let friendsList = users.filter( (user) => {
-					return friends.find( (element) => {
-						element == user.id;
-					});
-				})
-			});
+					if (friends.includes(user.id)) { return user };
+				});
+
+				return friendsList;
+			})
+	}
+
+	getFriendById (id) {
+		let user = this.users.find( (user) => {
+			return (user.id === id);
+		});
+		return user;
 	}
 }
 
-module.exports = new FriendsService();
+export default new FriendsService();

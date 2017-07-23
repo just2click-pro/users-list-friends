@@ -1,15 +1,15 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import { 
     ADD_FRIEND, REMOVE_FRIEND, 
     GET_FRIENDS_LIST_REQUEST, 
     GET_FRIENDS_LIST_RESPONSE } from "../actions";
 
-function friendsReducer(state = [], action){
-    switch (action.type){
+function friendsListReducer(state = [], action){
+    switch (action.type) {
         case ADD_FRIEND:
-            return [...state, action.friend];
+            return [...state, action.user];
         case REMOVE_FRIEND:
-            return state.filter(friend => friend != action.friend);
+            return state.filter(friend => friend.id != action.userId);
         case GET_FRIENDS_LIST_RESPONSE:
             return [...action.friends];
     }
@@ -29,6 +29,6 @@ function isLoadingReducer(state = false, action){
     return state;
 }
 export default combineReducers({
-    friends: friendsReducer,
+    friendsList: friendsListReducer,
     isLoading: isLoadingReducer
 });

@@ -1,0 +1,72 @@
+.users-list-app {
+	&.users-list-app-appear {
+		transition: transform 500ms;
+		transform: scale(0);
+
+		&.users-list-app-appear-active {
+			transform: scale(1);
+		}
+	}
+}
+
+.users-list-wrapper {
+	&.users-list-wrapper-appear {
+  		transition: left 500ms cubic-bezier(1.000, -0.530, 0.405, 1.425);		
+		left: -200px !important;
+
+		&.users-list-wrapper-appear-active {
+			left: 0;
+		}
+	}
+}
+
+.user-page-wrapper-enter, .user-page-wrapper-leave {
+	transition: all 500ms;
+	overflow: hidden;
+}
+
+.user-page-wrapper-enter {
+	opacity: 0;
+	.user-page-wrapper-enter-active {
+		opacity: 1;
+	}
+}
+
+.user-page-wrapper-leave {
+	opacity: 1;
+	.user-page-wrapper-leave-active {
+		opacity: 0;
+	}
+}
+
+h1 {
+	&.logo-appear {
+		transition: transform 300ms;
+		overflow: hidden;
+		height: 0;
+
+		&.logo-appear-active {
+			height: 100px
+		}
+	}	
+}
+
+.fade-appear, .fade-enter, .fade-leave {
+  transition: opacity 300ms;
+}
+
+.fade-enter, .fade-appear {
+  opacity: 0;
+
+  &.fade-appear-active, &.fade-enter-active {
+    opacity: 1;
+  }
+}
+
+.fade-leave {
+  opacity: 1;
+
+  &.fade-leave-active {
+    opacity: 0;
+  }
+}

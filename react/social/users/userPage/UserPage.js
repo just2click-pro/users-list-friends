@@ -3,9 +3,11 @@ import {connect} from "react-redux";
 import UserDetails from "./UserDetails";
 import UserPosts from "./UserPosts"
 import UserAdd from "./UserAdd";
-import {getUser} from "../../../actions/creators"
+import {getUser} from "../../../actions/creators";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import "./user-page.scss";
+import "../../../animations.scss"
 
 
 class UserPage extends React.Component {
@@ -28,11 +30,20 @@ class UserPage extends React.Component {
         if(this.props.isLoading)
             return <main className="user-page">Loading...</main>;
 
-        return (<main className="user-page">
-                    <UserAdd user={ this.props.user } />
-                    <UserDetails user={ this.props.user }/>
-                    <UserPosts posts={ this.props.posts }/>
-                </main>)
+        return (
+            <ReactCSSTransitionGroup
+                transitionName="user-page-wrapper"
+                transitionEnterTimeout={300}
+                transitionLeaveTimeout={300}>     
+                <div className="user-page-wrapper">        
+                    <main className="user-page">
+                            <UserAdd user={ this.props.user } />
+                            <UserDetails user={ this.props.user }/>
+                            <UserPosts posts={ this.props.posts }/>
+                    </main>
+                </div>
+            </ReactCSSTransitionGroup>
+        )
     }
 }
 

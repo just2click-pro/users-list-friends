@@ -1,23 +1,25 @@
 @import "../../../colors";
 
-.users-list {
-    background: $navBackground;
-    border-radius: 5px;
-    color: $fontColor;
-    box-shadow: 1px 1px 0 1px rgba(215,88,19,.4);
-    padding: 20px;
-    margin: 0 20px;
-    width: 150px;
+.users-list-wrapper {
     position: absolute;
     top: 82px;
-    left: 0;
 
-    a {
+    .users-list {
+        background: $navBackground;
+        border-radius: 5px;
         color: $fontColor;
-        text-decoration: none;
+        box-shadow: 1px 1px 0 1px rgba(215,88,19,.4);
+        padding: 20px;
+        margin: 0 20px;
+        width: 150px;
 
-        &.active {
-            text-decoration: underline;
+        a {
+            color: $fontColor;
+            text-decoration: none;
+
+            &.active {
+                text-decoration: underline;
+            }
         }
     }
 }

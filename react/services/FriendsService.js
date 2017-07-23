@@ -14,6 +14,11 @@ class FriendsService {
 			});
 	}
 
+	isAlreadyAFriend (user) {
+		let friends = this.loadFriends();
+		return (friends.includes(user.id));
+	}
+
 	loadFriends () {
 		let friends = localStorage.getItem('user_friends');
 

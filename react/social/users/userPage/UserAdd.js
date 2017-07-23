@@ -11,7 +11,9 @@ class AddUser extends React.Component {
     }
 
     render () {
-    	if(this.props.isLoading) {
+        let isAlreadyAFriend = FriendsService.isAlreadyAFriend(this.props.user);
+
+    	if (this.props.isLoading || isAlreadyAFriend) {
     		return (<span></span>);
     	}
     	return (

@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getFriendsList } from "../../../actions/creators";
 import FriendBox from './friend-box';
+import Fade from "../../../Fade";
 
 import "./friends-list.scss";
 
@@ -19,9 +20,13 @@ class FriendsList extends React.Component {
     }
 
     renderFriend(user, i){
-        return <div key={i} className="friend-box">
+        return ( 
+            <div key={i} className="friend-box">
+                <Fade>
                     <FriendBox user={ user } />
-                </div>
+                </Fade>
+            </div>
+        );
     }
 
     render() {
